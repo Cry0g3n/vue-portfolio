@@ -1,3 +1,5 @@
+const StylelintPlugin = require('stylelint-webpack-plugin');
+
 module.exports = {
   /*
   ** Headers of the page
@@ -31,7 +33,15 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
+
+        // TODO: Проверка стилей при сборке
+        /*config.plugins.push(new StylelintPlugin({
+          files: [
+            '**!/!*.vue',
+            '**!/!*.scss',
+          ],
+        }))*/
       }
     }
   }
