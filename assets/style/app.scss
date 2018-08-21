@@ -1,0 +1,94 @@
+// colors
+@import "misc/variables";
+
+// setups
+@import "misc/mixins";
+@import "misc/fonts";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, label:after, label:before {
+  transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+p {
+  color: $dark_grey;
+  @include roboto(regular);
+  line-height: 36px;
+  @include tablet {
+    color: blue;
+  }
+  @include phone {
+    color: red;
+  }
+}
+
+h1, h2 {
+  font-size: 63px;
+  font-weight: 400;
+  position: relative;
+  line-height: 4rem;
+  & .light {
+    color: white;
+  }
+  @include phone {
+    font-size: 35px;
+    line-height: 2rem;
+  }
+}
+
+h4 {
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 41px;
+  @include phone {
+    font-size: 21px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $dark_grey;
+  display: inline-block;
+  margin: 0;
+  &:after, &:before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 5px;
+    background-color: rgba($dark_grey, .2);
+    position: absolute;
+    top: 30px;
+  }
+
+  @include bernier();
+
+  &:before {
+    left: -30px;
+  }
+
+  &:after {
+    right: -30px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include phone {
+    &:after, &:before {
+      display: none;
+    }
+    line-height: 1.5em;
+  }
+}
+
+h1, h2 {
+  @include phone {
+    font-size: 3em;
+  }
+}

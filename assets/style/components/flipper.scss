@@ -1,0 +1,38 @@
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 380px;
+  min-height: 395px;
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include tablet {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @include phone {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+  width: 100%;
+}
+
+.flip-container__active {
+  transform: rotateY(180deg);
+}

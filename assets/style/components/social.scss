@@ -1,0 +1,27 @@
+.social {
+  margin: 10px 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0;
+
+  &__item {
+    margin-right: 30px;
+    display: inline-block;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__svg {
+    width: 31px;
+    height: 22px;
+    opacity: 0.5;
+    fill: $light_green;
+    filter: $light_green_svg;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

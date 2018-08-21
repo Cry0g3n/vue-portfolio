@@ -1,0 +1,25 @@
+.button__link {
+  padding: 0 30px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  position: absolute;
+  right: (100/1800)*100%;
+  top: 24px;
+  font-size: 16px;
+  line-height: 36px;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all .3s linear;
+  &:hover {
+    background: white;
+    color: $dark_green;
+  }
+  @include roboto(medium);
+  @include phone {
+    left: 50%;
+    right: inherit;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+  }
+}

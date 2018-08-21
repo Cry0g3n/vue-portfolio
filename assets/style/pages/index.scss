@@ -1,0 +1,27 @@
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyright-auth {
+  color: #fff;
+  position: absolute;
+  bottom: 35px;
+  display: block;
+  width: 100%;
+  text-align: center;
+
+  @include roboto(light);
+
+  @include phone {
+    bottom: 10px;
+    font-size: 12px;
+  }
+
+  @include tablet {
+    bottom: 25px;
+    font-size: 14px;
+  }
+}

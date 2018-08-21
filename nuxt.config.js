@@ -1,5 +1,23 @@
 const StylelintPlugin = require('stylelint-webpack-plugin')
 
+const isVueRule = (rule) => {
+  return rule.test.toString() === '/\\.vue$/'
+}
+
+const isSASSRule = (rule) => {
+  return ['/\\.sass$/', '/\\.scss$/'].indexOf(rule.test.toString()) !== -1
+}
+
+const sassResourcesLoader = {
+  loader: 'sass-loader',
+  options: {
+    includePaths: [__dirname],
+    data: '@import "assets/style/misc/mixins.scss"; ' +
+      '@import "assets/style/misc/variables.scss"; ' +
+      '@import "assets/style/misc/fonts.scss";'
+  }
+}
+
 module.exports = {
   /*
   ** Headers of the page
@@ -41,6 +59,20 @@ module.exports = {
           ],
         }))*/
       }
+
+      config.module.rules.forEach((rule) => {
+        if (isVueRule(rule)) {
+          rule.options.loaders.sass.push(sassResourcesLoader)
+          rule.options.loaders.scss.push(sassResourcesLoader)
+        }
+        if (isSASSRule(rule)) {
+          rule.use.push(sassResourcesLoader)
+        }
+      })
     },
   },
+
+  css: [
+    'normalize.css/normalize.css',
+  ],
 }
